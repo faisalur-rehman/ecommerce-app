@@ -1,0 +1,47 @@
+.ryad_store {
+  background: #fff;
+  padding-top: 90px;
+}
+
+.ryad_store .ryad_store_nav #accordion .card-store ul li {
+  list-style: none;
+  border: 2px solid #ece9e9;
+  color: #07090d;
+  margin: 3px 0px;
+  text-align: center;
+  padding: 10px;
+}
+
+.ryad_store_products_heading h3 {
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  color: #6fa8dc;
+  padding: 7px 0px;
+  font-size: 32px;
+}
+.ryad_store .ryad_store_nav #accordion .card-store button p,
+.ryad_store .ryad_store_nav #accordion .card-store i {
+  text-decoration: none;
+  color: #07090d;
+}
+.ryad_store .ryad_store_nav #accordion .card-store ul li a {
+  text-decoration: none;
+  color: #07090d;
+}
+.text-sp {
+  color: #a2a1a4;
+}
+.product_description {
+  line-height: 0.6;
+}
+.ryad_store_nav {
+  margin-top: 20%;
+}
+@media screen and (max-width: 575px) {
+  .ryad_store_nav {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}

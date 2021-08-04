@@ -41,7 +41,7 @@ const Header = () => {
               </div>
             </div>
           </nav>
-          <div class="nav-top">
+          {/* <div class="nav-top">
             <ul class="nav mb-2 mt-1 bg-white justify-content-center">
               <li class="nav-item mr-5">
                 <a class="nav-link active" href="#1">
@@ -59,7 +59,7 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </header>
     </div>
