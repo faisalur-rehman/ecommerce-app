@@ -6,6 +6,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import SingleStore from "./components/Stores/SingleStore/SingleStore";
 import Product from "./components/Product/Product";
 import UserRegistration from "./components/UserRegistration/UserRegistration";
+import ProfessionalRegistration from "./components/ProfessionalRegistration/ProfessionalRegistration";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/user-registration">
             <UserRegistration />
+          </Route>
+          <Route path="/professional-registration">
+            <ProfessionalRegistration />
           </Route>
         </Switch>
       </Router>
