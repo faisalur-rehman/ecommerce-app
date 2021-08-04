@@ -4,6 +4,7 @@ import Main from "./components/Main/Main";
 import Stores from "./components/Stores/Stores";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import SingleStore from "./components/Stores/SingleStore/SingleStore";
+import Product from "./components/Product/Product";
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
             <Main />
             <Stores />
           </Route>
-          <Route exact path="/store">
+          <Route path="/store">
             <SingleStore />
+          </Route>
+          <Route path="/product">
+            <Product />
           </Route>
         </Switch>
       </Router>

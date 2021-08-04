@@ -7,7 +7,7 @@ import "../../../index.css";
 const SingleStore = () => {
   return (
     <Layout>
-      <section class="ryad_store">
+      <section class="ryad_store" style={{ background: "white" }}>
         <div class="container">
           <div class="row store-ryad-sidebar">
             <div class="ryad_store_nav col-lg-3 col-md-4 col-sm-6">

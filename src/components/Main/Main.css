@@ -1,6 +1,6 @@
-body {
+/* body {
   background: #fff !important;
-}
+} */
 .sticky + .hero_section {
   padding-top: 135px;
 }
@@ -52,13 +52,6 @@ hr {
 
 .carousel-caption {
   padding-bottom: 80px;
-}
-
-h2 {
-  font-size: 60px;
-}
-p {
-  padding: 10px;
 }
 
 /* Background images are set within the HTML using inline CSS, not here */
