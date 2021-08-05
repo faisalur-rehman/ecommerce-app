@@ -67,7 +67,9 @@ const Cart = () => {
                     </td>
                     <td>2000 Da</td>
                     <td>
-                      <a class="btn btn-primary1">Cancel</a>
+                      <a class="btn btn-primary1" href="#1">
+                        Cancel
+                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -111,7 +113,9 @@ const Cart = () => {
                     </td>
                     <td>2000 Da</td>
                     <td>
-                      <a class="btn btn-primary1">Cancel</a>
+                      <a class="btn btn-primary1" href="#1">
+                        Cancel
+                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -155,7 +159,9 @@ const Cart = () => {
                     </td>
                     <td>2000 Da</td>
                     <td>
-                      <a class="btn btn-primary1">Cancel</a>
+                      <a class="btn btn-primary1" href="#!">
+                        Cancel
+                      </a>
                     </td>
                   </tr>
                 </tbody>

@@ -10,6 +10,7 @@ import ProfessionalRegistration from "./components/ProfessionalRegistration/Prof
 import UserAccount from "./components/User/UserAccount/UserAccount";
 import Messages from "./components/User/Messages/Messages";
 import Cart from "./components/User/Cart/Cart";
+import UserInformation from "./components/User/UserInformation/UserInformation";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/user-information">
+            <UserInformation />
           </Route>
         </Switch>
       </Router>
