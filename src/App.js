@@ -11,6 +11,7 @@ import UserAccount from "./components/User/UserAccount/UserAccount";
 import Messages from "./components/User/Messages/Messages";
 import Cart from "./components/User/Cart/Cart";
 import UserInformation from "./components/User/UserInformation/UserInformation";
+import Delivery from "./components/User/DeliveryOption/Delivery";
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/user-information">
             <UserInformation />
+          </Route>
+          <Route path="/delivery">
+            <Delivery />
           </Route>
         </Switch>
       </Router>
