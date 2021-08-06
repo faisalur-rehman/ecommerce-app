@@ -242,9 +242,9 @@ li {
 }
 
 /*active Class*/
-a.activeclass {
+.activeclass {
   background-color: #6fa8dc !important;
-  color: #fff;
+  color: #fff !important;
 }
 h2 {
   color: #6fa8dc;

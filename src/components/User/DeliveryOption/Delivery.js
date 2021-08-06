@@ -6,7 +6,7 @@ const Delivery = () => {
     <Layout>
       <div class="container">
         <div class="my_information_area" style={{ padding: 80 }}>
-          <h2 class="text-center mt-5">Deliery Option</h2>
+          <h2 class="text-center mt-5">Delivery Option</h2>
           <form class="mt-3">
             <p class="font-weight-bold">Select Delivery Option</p>
             <div class="row mb-1 bg-white p-3 m-1">

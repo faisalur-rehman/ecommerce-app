@@ -91,7 +91,7 @@ const Messages = () => {
             <div class="chatbox__support">
               <div class="chatbox__header">
                 <div class="chatbox__image--header">
-                  <img src="./src/img/image.png" alt="image" />
+                  <img src="./src/img/image.png" alt="" />
                 </div>
                 <div class="chatbox__content--header">
                   <h4 class="chatbox__heading--header">Chat support</h4>

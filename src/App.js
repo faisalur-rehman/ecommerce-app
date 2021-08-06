@@ -12,6 +12,8 @@ import Messages from "./components/User/Messages/Messages";
 import Cart from "./components/User/Cart/Cart";
 import UserInformation from "./components/User/UserInformation/UserInformation";
 import Delivery from "./components/User/DeliveryOption/Delivery";
+import Sidebar from "./components/User/Sidebar/Sidebar";
+import Orders from "./components/User/Orders/Orders";
 
 function App() {
   return (
@@ -36,10 +38,13 @@ function App() {
             <ProfessionalRegistration />
           </Route>
           <Route path="/userAccount">
-            <UserAccount />
+            <Sidebar />
           </Route>
           <Route path="/messages">
             <Messages />
+          </Route>
+          <Route path="/orders">
+            <Orders />
           </Route>
           <Route path="/cart">
             <Cart />
