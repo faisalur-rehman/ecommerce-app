@@ -4,6 +4,25 @@ import "./Main.css";
 const Main = () => {
   return (
     <div>
+      <div class="nav-top" style={{ paddingTop: 100 }}>
+        <ul class="nav mb-2 mt-1 bg-white justify-content-center">
+          <li class="nav-item mr-5">
+            <a class="nav-link active" href="#1">
+              All
+            </a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" href="#1">
+              Ready To Wear
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#1">
+              House
+            </a>
+          </li>
+        </ul>
+      </div>
       <section className="hero_section">
         <div
           id="carousel"

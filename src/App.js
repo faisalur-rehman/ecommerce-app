@@ -7,13 +7,11 @@ import SingleStore from "./components/Stores/SingleStore/SingleStore";
 import Product from "./components/Product/Product";
 import UserRegistration from "./components/User/UserRegistration/UserRegistration";
 import ProfessionalRegistration from "./components/ProfessionalRegistration/ProfessionalRegistration";
-import UserAccount from "./components/User/UserAccount/UserAccount";
-import Messages from "./components/User/Messages/Messages";
 import Cart from "./components/User/Cart/Cart";
 import UserInformation from "./components/User/UserInformation/UserInformation";
 import Delivery from "./components/User/DeliveryOption/Delivery";
 import Sidebar from "./components/User/Sidebar/Sidebar";
-import Orders from "./components/User/Orders/Orders";
+import ProfessionalSidebar from "./components/Professional/ProfessionalSidebar/ProfessionalSidebar";
 
 function App() {
   return (
@@ -40,11 +38,8 @@ function App() {
           <Route path="/userAccount">
             <Sidebar />
           </Route>
-          <Route path="/messages">
-            <Messages />
-          </Route>
-          <Route path="/orders">
-            <Orders />
+          <Route path="/professional">
+            <ProfessionalSidebar />
           </Route>
           <Route path="/cart">
             <Cart />
