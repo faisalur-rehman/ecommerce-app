@@ -5,22 +5,28 @@ import AppForm from "../../AppForm/AppForm";
 import * as userApi from "../../../apis/user";
 import FieldError from "../../AppForm/FieldError";
 import { updateProfessionalProfile } from "../../../utils/validations";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AppLoading from "../../common/AppLoading";
 
 export default function ProfessionalAccount() {
+  const [isUserUpdated, setIsUserUpdate] = useState(false);
   const {
     request,
     isLoading,
     data: userProfile,
   } = useApi(userApi.getUserProfile);
+  const updateUser = useApi(userApi.updateProProfile, { hasCatchError: true });
 
   useEffect(() => {
     request();
-  }, []);
+  }, [isUserUpdated]);
 
-  const handleSubmit = ({ formValues }) => {
+  const handleSubmit = async ({ formValues }) => {
     console.log("handle submit: ", formValues);
+    try {
+      await updateUser.request(formValues);
+      setIsUserUpdate(true);
+    } catch (_) {}
   };
 
   return (
