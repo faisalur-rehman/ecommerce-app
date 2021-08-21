@@ -5,13 +5,13 @@ import Stores from "./components/Stores/Stores";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import SingleStore from "./components/Stores/SingleStore/SingleStore";
 import Product from "./components/Product/Product";
-import UserRegistration from "./components/User/UserRegistration/UserRegistration";
 import ProfessionalRegistration from "./components/ProfessionalRegistration/ProfessionalRegistration";
 import Cart from "./components/User/Cart/Cart";
 import UserInformation from "./components/User/UserInformation/UserInformation";
 import Delivery from "./components/User/DeliveryOption/Delivery";
 import Sidebar from "./components/User/Sidebar/Sidebar";
 import ProfessionalSidebar from "./components/Professional/ProfessionalSidebar/ProfessionalSidebar";
+import UserRegistration from "./components/User/UserRegistration/UserRegistration";
 
 function App() {
   return (

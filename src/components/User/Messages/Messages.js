@@ -5,8 +5,42 @@ import chatIcon from "../../../Assets/images/chat.PNG";
 import Layout from "../../Layout/Layout";
 
 const Messages = () => {
+  function handleToggleSidebar(toggle) {
+    window.addEventListener("DOMContentLoaded", (event) => {
+      // Toggle the side navigation
+      const sidebarToggle = document.body.querySelector("#sidebarToggle");
+      if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        if (localStorage.getItem("sb|sidebar-toggle") === "true") {
+          document.body.classList.toggle("sb-sidenav-toggled");
+        }
+        sidebarToggle.addEventListener("click", (event) => {
+          event.preventDefault();
+          document.body.classList.toggle("sb-sidenav-toggled");
+          localStorage.setItem(
+            "sb|sidebar-toggle",
+            document.body.classList.contains("sb-sidenav-toggled")
+          );
+        });
+      }
+    });
+  }
   return (
-    <Layout>
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+          <button
+            class="btn button_primary1"
+            id="sidebarToggle"
+            onClick={() => handleToggleSidebar(true)}
+          >
+            <i class="fa fa-home fa-2x" aria-hidden="true">
+              {" "}
+            </i>
+          </button>
+          <div></div>
+        </div>
+      </nav>
       <div class="container-fluid">
         <div class="messages_area" style={{ padding: 80 }}>
           <h2 class="text-center">My Messages</h2>
@@ -136,7 +170,7 @@ const Messages = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </div>
   );
 };
 

@@ -1,15 +1,15 @@
 .customer_form_area {
   padding: 100px;
 }
-.customer_form_area .customer_login_form form,
-.customer_form_area .customer_sign_up_from form {
+.customer_form_area .customer_login_form .form,
+.customer_form_area .customer_sign_up_from .form {
   width: 80%;
   margin: 0 auto;
   /* box-shadow: 4px 4px 5px 0px rgba(207, 207, 207, 0.87); */
   box-shadow: 0 0 10px rgba(207, 207, 207, 0.87);
 }
-.customer_form_area .customer_login_form form button,
-.customer_form_area .customer_sign_up_from form button {
+.customer_form_area .customer_login_form button,
+.customer_form_area .customer_sign_up_from button {
   background: #6fa8dc;
   color: #fff;
   padding: 7px 60px;
