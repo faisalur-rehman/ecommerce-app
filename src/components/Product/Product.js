@@ -11,7 +11,6 @@ const initialValues = {
 const Product = () => {
   const { request, data } = useApi(api.getSingleArticle);
   const [quantity, setQuantity] = useState(1);
-  const [, setValues] = useState(initialValues);
   const { id } = useParams();
   useEffect(() => {
     async function fetchData() {
@@ -25,13 +24,27 @@ const Product = () => {
     //eslint-disable-next-line
   }, []);
   async function handleSubmit({ formValues }) {
+    let prevCart = JSON.parse(localStorage.getItem("cart"));
     let cartObj = {
       storeId: data.article.storeId._id,
       articleId: data.article._id,
       quantity,
       size: formValues.size,
     };
-    localStorage.setItem("cart", JSON.stringify(cartObj));
+    if (prevCart) {
+      let found = prevCart.findIndex(
+        (element) => element.articleId === data.article._id
+      );
+      if (+found === -1) {
+        localStorage.setItem("cart", JSON.stringify([...prevCart, cartObj]));
+      } else {
+        prevCart[found] = cartObj;
+
+        localStorage.setItem("cart", JSON.stringify([...prevCart]));
+      }
+    } else {
+      localStorage.setItem("cart", JSON.stringify([cartObj]));
+    }
   }
 
   return (
