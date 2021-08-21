@@ -1,6 +1,4 @@
-import React from "react";
-
-const ProfessionalAccount = () => {
+export default function ProfessionalAccount() {
   return (
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -22,7 +20,7 @@ const ProfessionalAccount = () => {
                   seller_account_edit_form
                   col-lg-8 col-md-8 col-sm-12
                   mx-auto
-                  mb-4
+                  mb-4 
                 "
             >
               <form class="p-3 mt-2">
@@ -143,6 +141,4 @@ const ProfessionalAccount = () => {
       </div>
     </div>
   );
-};
-
-export default ProfessionalAccount;
+}
