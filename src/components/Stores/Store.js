@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import useApi from "../../../hooks/useApi";
-import StoresScreen from "../StoresScreen";
-import * as api from "../../../apis/api";
+import StoresScreen from "./StoresScreen";
+import * as api from "../../apis/api";
+import useApi from "../../hooks/useApi";
 
 const Store = () => {
   const { data, request } = useApi(api.getStores);

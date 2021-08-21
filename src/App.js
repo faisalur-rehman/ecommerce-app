@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import SingleStore from "./components/Stores/SingleStore/SingleStore";
 import Product from "./components/Product/Product";
 import ProfessionalRegistration from "./components/ProfessionalRegistration/ProfessionalRegistration";
 import Cart from "./components/User/Cart/Cart";
@@ -11,7 +10,8 @@ import Delivery from "./components/User/DeliveryOption/Delivery";
 import Sidebar from "./components/User/Sidebar/Sidebar";
 import ProfessionalSidebar from "./components/Professional/ProfessionalSidebar/ProfessionalSidebar";
 import UserRegistration from "./components/User/UserRegistration/UserRegistration";
-import Store from "./components/Stores/SingleStore/Store";
+import SingleStore from "./components/Stores/SingleStore/SingleStore";
+import Store from "./components/Stores/Store";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           <Route path="/store/:id">
             <SingleStore />
           </Route>
-          <Route path="/product">
+          <Route path="/product/:id">
             <Product />
           </Route>
           <Route path="/user-registration">

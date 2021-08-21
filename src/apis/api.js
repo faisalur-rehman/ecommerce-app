@@ -30,15 +30,17 @@ export function updateProfile(data) {
 export function getStores() {
   return api.get(`/store/get-all`, config);
 }
-
+export function getArticles(data) {
+  return api.post(`/store/get-articles`, { ...data }, config);
+}
 export function forgotPassword(data) {
   return api.patch(`/user/forget-password`, { ...data }, config);
 }
 export function getRaffle() {
   return api.get(`/article/get-raffle`, config);
 }
-export function getSingleArticle(data) {
-  return api.post(`/article/get-single`, { ...data }, config);
+export function getSingleStore(data) {
+  return api.post(`/store/get-single`, { ...data }, config);
 }
 export function createOrder(data) {
   return api.post(`/order-history/add`, { ...data }, config);

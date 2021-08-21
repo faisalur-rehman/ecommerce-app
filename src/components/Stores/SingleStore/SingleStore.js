@@ -1,320 +1,41 @@
-import React from "react";
-import Layout from "../../Layout/Layout";
-import "./SingleStore.css";
-import all from "../../../Assets/images/all.jpg";
-import "../../../index.css";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import SingleStoreScreen from "./SingleStoreScreen";
+import * as api from "../../../apis/api";
+import useApi from "../../../hooks/useApi";
 
 const SingleStore = () => {
+  const { id } = useParams();
+  const { data, request } = useApi(api.getSingleStore);
+  const allArticles = useApi(api.getArticles);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await request({ storeId: id });
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
+    fetchData();
+    //eslint-disable-next-line
+  }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await allArticles.request({ storeId: id });
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
+    fetchData();
+    //eslint-disable-next-line
+  }, []);
   return (
-    <Layout>
-      <section class="ryad_store" style={{ background: "white" }}>
-        <div class="container">
-          <div class="row store-ryad-sidebar">
-            <div class="ryad_store_nav col-lg-3 col-md-4 col-sm-6">
-              <div id="accordion">
-                <div class="card-store">
-                  <div
-                    class="card-header d-flex justify-content-between"
-                    id="headingOne"
-                  >
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <p class="mb-0">Men</p>
-                    </button>
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <i class="fas fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div
-                    id="collapseOne"
-                    class="collapse"
-                    aria-labelledby="headingOne"
-                    data-parent="#accordion"
-                  >
-                    <div class="card-body">
-                      <ul>
-                        <li>
-                          <a href=""> All</a>
-                        </li>
-                        <li>
-                          <a href=""> Clothes</a>
-                        </li>
-                        <li>
-                          <a href="">Shoes</a>
-                        </li>
-                        <li>
-                          <a href="">Wathces and Jewelery</a>
-                        </li>
-                        <li>
-                          <a href="">Bags</a>
-                        </li>
-                        <li>
-                          <a href="">Accessories</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-store">
-                  <div
-                    class="card-header d-flex justify-content-between"
-                    id="headingTwo"
-                  >
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="true"
-                      aria-controls="collapseTwo"
-                    >
-                      <p class="mb-0">Women</p>
-                    </button>
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="true"
-                      aria-controls="collapseTwo"
-                    >
-                      <i class="fas fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div
-                    id="collapseTwo"
-                    class="collapse"
-                    aria-labelledby="headingTwo"
-                    data-parent="#accordion"
-                  >
-                    <div class="card-body">
-                      <ul>
-                        <li>
-                          <a href=""> All</a>
-                        </li>
-                        <li>
-                          <a href=""> Clothes</a>
-                        </li>
-                        <li>
-                          <a href="">Shoes</a>
-                        </li>
-                        <li>
-                          <a href="">Wathces and Jewelery</a>
-                        </li>
-                        <li>
-                          <a href="">Bags</a>
-                        </li>
-                        <li>
-                          <a href="">Accessories</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-store">
-                  <div
-                    class="card-header d-flex justify-content-between"
-                    id="headingThree"
-                  >
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="true"
-                      aria-controls="collapseThree"
-                    >
-                      <p class="mb-0">Child</p>
-                    </button>
-                    <button
-                      class="btn btn-link"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="true"
-                      aria-controls="collapseThree"
-                    >
-                      <i class="fas fa-chevron-down"></i>
-                    </button>
-                  </div>
-                  <div
-                    id="collapseThree"
-                    class="collapse"
-                    aria-labelledby="headingThree"
-                    data-parent="#accordion"
-                  >
-                    <div class="card-body">
-                      <ul>
-                        <li>
-                          <a href=""> All</a>
-                        </li>
-                        <li>
-                          <a href=""> Clothes</a>
-                        </li>
-                        <li>
-                          <a href="">Shoes</a>
-                        </li>
-                        <li>
-                          <a href="">Accessories</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ryad_store_products col-lg-9 col-md-8 col-sm-6 mb-4">
-              <div class="container">
-                <div class="ryad_store_products_heading">
-                  <h3 class="text-center">Shop Ryad</h3>
-                </div>
-                <div class="row">
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="product_image">
-                      <a href="./single_product.html">
-                        <img src={all} alt="" />
-                      </a>
-                    </div>
-                    <div class="product_description mt-2">
-                      <div class="d-flex justify-content-between">
-                        <span>1200 DA</span>
-                        <span>
-                          <del> 1200</del> DA
-                        </span>
-                        <span
-                          class="d-inline-flex flex-column"
-                          style={{ lineHeight: 1 }}
-                        >
-                          <i class="far fa-heart"></i> <small>11</small>
-                        </span>
-                      </div>
-                      <span class="text-sp"> H&M</span>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="product_image">
-                      <a href="./single_product.html">
-                        <img src={all} alt="" />
-                      </a>
-                    </div>
-                    <div class="product_description mt-2">
-                      <div class="d-flex justify-content-between">
-                        <span>1200 DA</span>
-                        <span>
-                          <del> 1200</del> DA
-                        </span>
-                        <span
-                          class="d-inline-flex flex-column"
-                          style={{ lineHeight: 1 }}
-                        >
-                          <i class="far fa-heart"></i> <small>11</small>
-                        </span>
-                      </div>
-                      <span class="text-sp"> H&M</span>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="product_image">
-                      <a href="./single_product.html">
-                        <img src={all} alt="" />
-                      </a>
-                    </div>
-                    <div class="product_description mt-2">
-                      <div class="d-flex justify-content-between">
-                        <span>1200 DA</span>
-                        <span>
-                          <del> 1200</del> DA
-                        </span>
-                        <span
-                          class="d-inline-flex flex-column"
-                          style={{ lineHeight: 1 }}
-                        >
-                          <i class="far fa-heart"></i> <small>11</small>
-                        </span>
-                      </div>
-                      <span class="text-sp"> H&M</span>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="product_image">
-                      <a href="./single_product.html">
-                        <img src={all} alt="" />
-                      </a>
-                    </div>
-                    <div class="product_description mt-2">
-                      <div class="d-flex justify-content-between">
-                        <span>1200 DA</span>
-                        <span>
-                          <del> 1200</del> DA
-                        </span>
-                        <span
-                          class="d-inline-flex flex-column"
-                          style={{ lineHeight: 1 }}
-                        >
-                          <i class="far fa-heart"></i> <small>11</small>
-                        </span>
-                      </div>
-                      <span class="text-sp"> H&M</span>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="product_image">
-                      <a href="./single_product.html">
-                        <img src={all} alt="" />
-                      </a>
-                    </div>
-                    <div class="product_description mt-2">
-                      <div class="d-flex justify-content-between">
-                        <span>1200 DA</span>
-                        <span>
-                          <del> 1200</del> DA
-                        </span>
-                        <span
-                          class="d-inline-flex flex-column"
-                          style={{ lineHeight: 1 }}
-                        >
-                          <i class="far fa-heart"></i> <small>11</small>
-                        </span>
-                      </div>
-                      <span class="text-sp"> H&M</span>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="product_image">
-                      <a href="./single_product.html">
-                        <img src={all} alt="" />
-                      </a>
-                    </div>
-                    <div class="product_description mt-2">
-                      <div class="d-flex justify-content-between">
-                        <span>1200 DA</span>
-                        <span>
-                          <del> 1200</del> DA
-                        </span>
-                        <span
-                          class="d-inline-flex flex-column"
-                          style={{ lineHeight: 1 }}
-                        >
-                          <i class="far fa-heart"></i> <small>11</small>
-                        </span>
-                      </div>
-                      <span class="text-sp"> H&M</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </Layout>
+    <div>
+      {data && allArticles.data && (
+        <SingleStoreScreen data={data} articles={allArticles.data} />
+      )}
+    </div>
   );
 };
 
