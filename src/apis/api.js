@@ -27,8 +27,8 @@ export function updateProfile(data) {
   return api.patch(`/user/update-profile`, { ...data }, config);
 }
 
-export function getArticles() {
-  return api.get(`/article/get-all-sneakers`, config);
+export function getStores() {
+  return api.get(`/store/get-all`, config);
 }
 
 export function forgotPassword(data) {

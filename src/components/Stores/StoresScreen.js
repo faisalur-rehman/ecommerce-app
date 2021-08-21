@@ -1,23 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import shop1 from "../../Assets/images/shop1.jpg";
-import shop2 from "../../Assets/images/shop2.jpg";
-import shop3 from "../../Assets/images/shop3.jpg";
-import shop4 from "../../Assets/images/shop4.jpg";
+// import shop2 from "../../Assets/images/shop2.jpg";
+// import shop3 from "../../Assets/images/shop3.jpg";
+// import shop4 from "../../Assets/images/shop4.jpg";
 
-const Stores = () => {
+const StoresScreen = ({ data }) => {
+  console.log("dataa", data);
   return (
     <div>
       <section class="shops pt-5 mb-5">
         <div class=" container">
           <div class="shop-cards">
-            <div class="card" style={{ backgroundImage: `url(${shop1})` }}>
-              <span class="card__title  card-1">
-                Store Ryad
-                <br />
-                Men - Women - Child
-              </span>
-            </div>
-            <div class="card" style={{ backgroundImage: `url(${shop2})` }}>
+            {data.stores.map((store) => (
+              <Link
+                to={`/store/${store._id}`}
+                class="card"
+                style={{ backgroundImage: `url(${shop1})` }}
+              >
+                <span class="card__title  card-1">
+                  {store.shopName}
+                  <br />
+                  {/* Men - Women - Child */}
+                </span>
+              </Link>
+            ))}
+            {/* <div class="card" style={{ backgroundImage: `url(${shop2})` }}>
               <span class="card__title  card-2">
                 Store Amir
                 <br />
@@ -37,7 +45,7 @@ const Stores = () => {
                 <br />
                 Men
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -45,4 +53,4 @@ const Stores = () => {
   );
 };
 
-export default Stores;
+export default StoresScreen;
