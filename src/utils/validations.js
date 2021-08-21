@@ -13,5 +13,5 @@ export const updateProfessionalProfile = yup.object().shape({
   passwordConfirmation: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match")
-    .required(),
+    .notRequired(),
 });

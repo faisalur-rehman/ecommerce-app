@@ -1,9 +1,24 @@
 import { Field } from "formik";
-import { updateProfessionalProfile } from "../../../utils/validations";
+
+import useApi from "../../../hooks/useApi";
 import AppForm from "../../AppForm/AppForm";
+import * as userApi from "../../../apis/user";
 import FieldError from "../../AppForm/FieldError";
+import { updateProfessionalProfile } from "../../../utils/validations";
+import { useEffect } from "react";
+import AppLoading from "../../common/AppLoading";
 
 export default function ProfessionalAccount() {
+  const {
+    request,
+    isLoading,
+    data: userProfile,
+  } = useApi(userApi.getUserProfile);
+
+  useEffect(() => {
+    request();
+  }, []);
+
   const handleSubmit = ({ formValues }) => {
     console.log("handle submit: ", formValues);
   };
@@ -32,7 +47,13 @@ export default function ProfessionalAccount() {
                   mb-4 
                 "
             >
-              <_UpdateForm onSubmit={handleSubmit} />
+              {isLoading && <AppLoading />}
+              {!isLoading && (
+                <_UpdateForm
+                  onSubmit={handleSubmit}
+                  initialValues={userProfile}
+                />
+              )}
             </div>
           </div>
         </section>
@@ -41,12 +62,13 @@ export default function ProfessionalAccount() {
   );
 }
 
-function _UpdateForm({ onSubmit }) {
+function _UpdateForm({ onSubmit, initialValues }) {
   return (
     <AppForm
       initialValues={initialValues}
       validationSchema={updateProfessionalProfile}
       handleSubmit={onSubmit}
+      enableReinitialize
     >
       <div class="p-3 mt-2">
         <div class="form-group">
@@ -109,12 +131,12 @@ function _UpdateForm({ onSubmit }) {
           <FieldError field="facebook" />
         </div>
         <div class="form-group">
-          <label>Instagram </label>
+          <label>Instagram</label>
           <Field type="text" name="instagram" class="form-control" />
           <FieldError field="instagram" />
         </div>
 
-        <div class="form-group col-lg-6">
+        {/* <div class="form-group col-lg-6">
           <label>
             Section<span class="text-danger">*</span>
           </label>
@@ -124,23 +146,23 @@ function _UpdateForm({ onSubmit }) {
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> Men </label>
               </div>
-              {/* <div class="form-check">
+              <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> Women </label>
-              </div> */}
+              </div>
             </div>
             <div class="d-flex justify-content-between">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> Child </label>
               </div>
-              {/* <div class="form-check">
+              <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> House </label>
-              </div> */}
+              </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div>
           <button type="submit" class="btn button_primary">
             Save Changes

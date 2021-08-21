@@ -7,6 +7,22 @@ export const api = axios.create({
   baseURL: DEV_URL,
 });
 
+api.interceptors.request.use(
+  (config) => {
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   config.headers["authorization"] = token;
+    // }
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIwZDI3MzZiMzUxZDMzMGNhMDgzMDgiLCJuYW1lIjoiQWJkdWwgTXVxZWV0IiwiZW1haWwiOiJqYXppbUBnbWFpbC5jb20iLCJyb2xlIjoicHJvZmVzc2lvbmFsIiwiaWF0IjoxNjI5NTQwOTgzfQ.695ZuWvocuG5r-Kqtnb8PNk6N4p6l6OjqYTbt0Loz6A";
+    config.headers["authorization"] = token;
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 const config = {
   headers: {
     Authorization: localStorage.getItem("token"),
