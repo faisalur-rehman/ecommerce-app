@@ -9,17 +9,18 @@ const UserRegistrationScreen = ({
   handleSubmit,
   error,
   data,
+  response,
 }) => {
   return (
     <AppForm initialValues={initialValues} handleSubmit={handleSubmit}>
-      <FormFields data={data} error={error} />
+      <FormFields data={data} error={error} response={response} />
     </AppForm>
   );
 };
 
 export default UserRegistrationScreen;
 
-function FormFields({ data, error }) {
+function FormFields({ data, error, response }) {
   console.log("data", data);
   console.log("error", error);
   return (
@@ -104,6 +105,7 @@ function FormFields({ data, error }) {
             <p style={{ color: "red", margin: 5 }}>
               {error.data && error.data.message}
             </p>
+            <p style={{ color: "red", margin: 5 }}>{response}</p>
             <p style={{ color: "green", margin: 5 }}>{data && data.message}</p>
           </div>
         </div>
