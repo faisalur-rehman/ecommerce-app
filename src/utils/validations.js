@@ -10,4 +10,8 @@ export const updateProfessionalProfile = yup.object().shape({
   facebook: yup.string().required(),
   instagram: yup.string().required(),
   sections: yup.array().of(yup.string().required()),
+  passwordConfirmation: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required(),
 });

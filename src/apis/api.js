@@ -3,7 +3,7 @@ import axios from "axios";
 const DEV_URL = "http://localhost:8000";
 // const PROD_URL = "https://shoe-e-store-restapi.herokuapp.com/";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: DEV_URL,
 });
 

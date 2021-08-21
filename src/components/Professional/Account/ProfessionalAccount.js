@@ -1,6 +1,13 @@
+import { Field } from "formik";
+import { updateProfessionalProfile } from "../../../utils/validations";
 import AppForm from "../../AppForm/AppForm";
+import FieldError from "../../AppForm/FieldError";
 
 export default function ProfessionalAccount() {
+  const handleSubmit = ({ formValues }) => {
+    console.log("handle submit: ", formValues);
+  };
+
   return (
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -25,7 +32,7 @@ export default function ProfessionalAccount() {
                   mb-4 
                 "
             >
-              <_UpdateForm />
+              <_UpdateForm onSubmit={handleSubmit} />
             </div>
           </div>
         </section>
@@ -34,72 +41,79 @@ export default function ProfessionalAccount() {
   );
 }
 
-function _UpdateForm() {
+function _UpdateForm({ onSubmit }) {
   return (
-    <AppForm>
+    <AppForm
+      initialValues={initialValues}
+      validationSchema={updateProfessionalProfile}
+      handleSubmit={onSubmit}
+    >
       <div class="p-3 mt-2">
         <div class="form-group">
           <label>
             Mail address <span class="text-danger">*</span>
           </label>
-          <input type="email" class="form-control" />
+          <Field type="email" class="form-control" name="email" />
+          <FieldError field="email" />
         </div>
         <div class="form-group">
           <label>
             Password <span class="text-danger">*</span>{" "}
           </label>
-          <input type="password" class="form-control" />
+          <Field type="password" name="password" class="form-control" />
+          <FieldError field="password" />
         </div>
         <div class="form-group">
           <label>
             Confirm Password <span class="text-danger">*</span>
           </label>
-          <input type="password" class="form-control" />
+          <Field
+            type="password"
+            name="passwordConfirmation"
+            class="form-control"
+          />
+          <FieldError field="passwordConfirmation" />
         </div>
         <div class="form-group">
           <label>
             Shop Name <span class="text-danger">*</span>
           </label>
-          <input type="text" class="form-control" />
+          <Field type="text" name="shopName" class="form-control" />
+          <FieldError field="shopName" />
         </div>
         <div class="form-group">
           <label>
-            First Name <span class="text-danger">*</span>
+            Username <span class="text-danger">*</span>
           </label>
-          <input type="text" class="form-control" />
+          <Field type="text" name="userName" class="form-control" />
+          <FieldError field="userName" />
         </div>
-        <div class="form-group">
-          <label>
-            Last Name <span class="text-danger">*</span>
-          </label>
-          <input type="text" class="form-control" />
-        </div>
+
         <div class="form-group">
           <label>
             Phone <span class="text-danger">*</span>
           </label>
-          <input type="text" class="form-control" />
+          <Field type="number" name="number" class="form-control" />
+          <FieldError field="number" />
         </div>
         <div class="form-group">
           <label>
             Address <span class="text-danger">*</span>
           </label>
-          <input type="text" class="form-control" />
+          <Field type="text" name="address" class="form-control" />
+          <FieldError field="address" />
         </div>
         <div class="form-group">
           <label>FaceBooks</label>
-          <input type="text" class="form-control" />
+          <Field type="text" name="facebook" class="form-control" />
+          <FieldError field="facebook" />
         </div>
         <div class="form-group">
           <label>Instagram </label>
-          <input type="text" class="form-control" />
+          <Field type="text" name="instagram" class="form-control" />
+          <FieldError field="instagram" />
         </div>
-        <div class="form-group">
-          <label>
-            Shop Photo <span class="text-danger">*</span>
-          </label>
-          <input type="file" class="form-control" id="customFile" />
-        </div>
+
         <div class="form-group col-lg-6">
           <label>
             Section<span class="text-danger">*</span>
@@ -110,20 +124,20 @@ function _UpdateForm() {
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> Men </label>
               </div>
-              <div class="form-check">
+              {/* <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> Women </label>
-              </div>
+              </div> */}
             </div>
             <div class="d-flex justify-content-between">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> Child </label>
               </div>
-              <div class="form-check">
+              {/* <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" />
                 <label class="form-check-label"> House </label>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -136,3 +150,15 @@ function _UpdateForm() {
     </AppForm>
   );
 }
+
+const initialValues = {
+  userName: "",
+  shopName: "",
+  email: "",
+  password: "",
+  number: "",
+  address: "",
+  facebook: "",
+  instagram: "",
+  sections: [],
+};
