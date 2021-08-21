@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Product from "./components/Product/Product";
 import ProfessionalRegistration from "./components/ProfessionalRegistration/ProfessionalRegistration";
 import Cart from "./components/User/Cart/Cart";
 import UserInformation from "./components/User/UserInformation/UserInformation";
@@ -12,6 +11,7 @@ import ProfessionalSidebar from "./components/Professional/ProfessionalSidebar/P
 import UserRegistration from "./components/User/UserRegistration/UserRegistration";
 import SingleStore from "./components/Stores/SingleStore/SingleStore";
 import Store from "./components/Stores/Store";
+import Product from "./components/Product/Product";
 
 function App() {
   return (
