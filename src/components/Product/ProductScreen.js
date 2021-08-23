@@ -53,10 +53,10 @@ function FormFields({ data, quantity, setQuantity }) {
                   {data.article.articleName}
                 </h2>
               </div>
-              <h2 class="text-center">{data.article.indicatedPrice} DA </h2>
+              <h2 class="text-center">{data.article.finalPrice} DA </h2>
               <p class="text-center">
                 {" "}
-                <del>{data.article.indicatedPrice + 50} DA </del>
+                <del>{data.article.indicatedPrice} DA </del>
               </p>
               <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-3">
@@ -68,6 +68,7 @@ function FormFields({ data, quantity, setQuantity }) {
                     name="size"
                     class="form-select form-select-lg mb-3"
                     aria-label=" Default select example"
+                    required
                   >
                     <option disabled selected value="">
                       Select Size

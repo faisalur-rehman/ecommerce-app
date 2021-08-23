@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useApi from "../../hooks/useApi";
 import ProductScreen from "./ProductScreen";
 import * as api from "../../apis/api";
@@ -9,6 +9,7 @@ const initialValues = {
 };
 
 const Product = () => {
+  const history = useHistory();
   const { request, data } = useApi(api.getSingleArticle);
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
@@ -24,6 +25,7 @@ const Product = () => {
     //eslint-disable-next-line
   }, []);
   async function handleSubmit({ formValues }) {
+    //logic for adding items to cart
     let prevCart = JSON.parse(localStorage.getItem("cart"));
     let cartObj = {
       storeId: data.article.storeId._id,
@@ -45,6 +47,7 @@ const Product = () => {
     } else {
       localStorage.setItem("cart", JSON.stringify([cartObj]));
     }
+    history.push("/cart");
   }
 
   return (
