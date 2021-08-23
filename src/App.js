@@ -3,7 +3,6 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import ProfessionalRegistration from "./components/ProfessionalRegistration/ProfessionalRegistration";
-import Cart from "./components/User/Cart/Cart";
 import UserInformation from "./components/User/UserInformation/UserInformation";
 import Delivery from "./components/User/DeliveryOption/Delivery";
 import Sidebar from "./components/User/Sidebar/Sidebar";
@@ -12,6 +11,7 @@ import UserRegistration from "./components/User/UserRegistration/UserRegistratio
 import SingleStore from "./components/Stores/SingleStore/SingleStore";
 import Store from "./components/Stores/Store";
 import Product from "./components/Product/Product";
+import Cart from "./components/User/Cart/Cart";
 
 function App() {
   return (

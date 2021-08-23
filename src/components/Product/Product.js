@@ -32,6 +32,8 @@ const Product = () => {
       articleId: data.article._id,
       quantity,
       size: formValues.size,
+      articleName: data.article.articleName,
+      finalPrice: data.article.finalPrice,
     };
     if (prevCart) {
       let found = prevCart.findIndex(
@@ -45,6 +47,7 @@ const Product = () => {
         localStorage.setItem("cart", JSON.stringify([...prevCart]));
       }
     } else {
+      console.log("caty", cartObj);
       localStorage.setItem("cart", JSON.stringify([cartObj]));
     }
     history.push("/cart");
