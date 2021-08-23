@@ -45,3 +45,6 @@ export function getRaffle() {
 export function getSingleStore(data) {
   return api.post(`/store/get-single`, { ...data }, config);
 }
+export function addOrderHistory(data) {
+  return api.post(`/orderhistory/add`, { ...data }, config);
+}

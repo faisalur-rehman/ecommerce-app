@@ -2,8 +2,10 @@ import React from "react";
 import Layout from "../../Layout/Layout";
 import "./Cart.css";
 import sweater from "../../../Assets/images/sweater.png";
+import { Link } from "react-router-dom";
 
 const CartScreen = ({ products, handleCancel }) => {
+  console.log("products", products);
   return (
     <Layout>
       <div class="container">
@@ -27,46 +29,39 @@ const CartScreen = ({ products, handleCancel }) => {
                   <th width="120px"></th>
                 </thead>
                 <tbody>
-                  {products.length > 0 ? (
-                    products.map((product) => (
-                      <tr>
-                        <td class="d-flex justify-content-lg-between">
-                          <img
-                            src={sweater}
-                            height="60px"
-                            width="60px"
-                            alt=""
-                          />
-                          <p>{product.articleName}</p>
-                        </td>
-                        <td>{product.finalPrice} Da</td>
-                        <td>{product.quantity}</td>
-                        <td>{product.finalPrice} Da</td>
-                        <td>
-                          <button
-                            onClick={() => handleCancel(product.articleId)}
-                            class="btn btn-primary1"
-                            href="#1"
-                          >
-                            Cancel
-                          </button>
-                        </td>
-                      </tr>
-                    ))
+                  {products ? (
+                    <tr>
+                      <td class="d-flex justify-content-lg-between">
+                        <img src={sweater} height="60px" width="60px" alt="" />
+                        <p>{products.articleName}</p>
+                      </td>
+                      <td>{products.price} Da</td>
+                      <td>{products.quantity}</td>
+                      <td>{products.price} Da</td>
+                      <td>
+                        <button
+                          onClick={() => handleCancel(products.articleId)}
+                          class="btn btn-primary1"
+                          href="#1"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
                   ) : (
                     <p>No Item in the Cart</p>
                   )}
                 </tbody>
               </table>
             </div>
-            {products.length > 0 && (
+            {products && (
               <div class="row">
                 <div class="col-2 mx-auto">
-                  <a href="./my_information.html">
+                  <Link to="/delivery">
                     <button class="btn button_primary text-center">
                       Proceed
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

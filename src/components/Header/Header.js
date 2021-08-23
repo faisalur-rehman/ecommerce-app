@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import capture from "../../Assets/images/Capture.PNG";
 import "./Header.css";
 
@@ -8,10 +9,9 @@ const Header = () => {
       <header class="header sticky">
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#1">
-              {" "}
+            <Link to="/" class="navbar-brand">
               <img src={capture} alt="logo" class="img-fluid" />
-            </a>
+            </Link>
             <button
               class="navbar-toggler"
               type="button"
@@ -35,31 +35,12 @@ const Header = () => {
               <div class="header_right col-lg-5  col-md-6 col-sm-12 d-flex">
                 <button class="btn btn-sm mr-4">Client Access </button>
                 <button class="btn btn-sm mr-4">Pro Access </button>
-                <a href="./my_cart.html">
+                <Link to="/cart">
                   <i class="fas fa-cart-plus fa-2x text-dark"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </nav>
-          {/* <div class="nav-top">
-            <ul class="nav mb-2 mt-1 bg-white justify-content-center">
-              <li class="nav-item mr-5">
-                <a class="nav-link active" href="#1">
-                  All
-                </a>
-              </li>
-              <li class="nav-item mr-5">
-                <a class="nav-link" href="#1">
-                  Ready To Wear
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#1">
-                  House
-                </a>
-              </li>
-            </ul>
-          </div> */}
         </div>
       </header>
     </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartScreen from "./CartScreen";
 
 const Cart = () => {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState();
   useEffect(() => {
     function fetchData() {
       setCartProducts(JSON.parse(localStorage.getItem("cart")));
@@ -19,7 +19,7 @@ const Cart = () => {
       JSON.stringify(cartProducts.filter((product) => product.articleId !== id))
     );
   }
-
+  console.log("cart", cartProducts);
   return (
     <div>
       {cartProducts && (
