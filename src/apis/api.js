@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const DEV_URL = "http://localhost:8000";
-// const PROD_URL = "https://shoe-e-store-restapi.herokuapp.com/";
+// const DEV_URL = "http://localhost:8000";
+const PROD_URL = "https://my-dressing-dz.herokuapp.com/";
 
 const api = axios.create({
-  baseURL: DEV_URL,
+  baseURL: PROD_URL,
 });
 
 const config = {
