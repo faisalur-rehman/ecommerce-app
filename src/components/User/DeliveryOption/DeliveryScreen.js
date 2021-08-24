@@ -1,5 +1,6 @@
 import { Field } from "formik";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import AppForm from "../../AppForm/AppForm";
 import Layout from "../../Layout/Layout";
 
@@ -8,12 +9,14 @@ const DeliveryScreen = ({
   deliveryType,
   initialValues,
   handleSubmit,
+  data,
 }) => {
   return (
     <AppForm initialValues={initialValues} handleSubmit={handleSubmit}>
       <FormFields
         setDeliveryType={setDeliveryType}
         deliveryType={deliveryType}
+        data={data}
       />
     </AppForm>
   );
@@ -21,8 +24,22 @@ const DeliveryScreen = ({
 
 export default DeliveryScreen;
 
-function FormFields({ error, setDeliveryType, deliveryType }) {
-  console.log("error", error);
+function FormFields({ setDeliveryType, deliveryType, data }) {
+  const [model, setModel] = useState(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    data && redirectToAccount();
+    data && setModel(true);
+    //eslint-disable-next-line
+  }, [data]);
+
+  function redirectToAccount() {
+    setTimeout(() => {
+      history.push("/userAccount");
+    }, 3000);
+  }
+
   return (
     <Layout>
       <div class="container">
@@ -77,6 +94,12 @@ function FormFields({ error, setDeliveryType, deliveryType }) {
                   </div>
                 </div>
               </>
+            )}
+            {model && (
+              <div>
+                Order Placed. Seller will contact you shortly. Thank you for
+                your trust. Redirecting...
+              </div>
             )}
             <div class="row mb-3">
               <div class="col-lg-2 col-md-2 col-sm-2 mx-auto">

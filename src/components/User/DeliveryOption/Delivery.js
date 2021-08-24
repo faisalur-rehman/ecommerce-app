@@ -9,20 +9,18 @@ const initialValues = {
 };
 
 const Delivery = () => {
-  const { request } = useApi(api.addOrderHistory);
+  const { data, request } = useApi(api.addOrderHistory);
   const [deliveryType, setDeliveryType] = useState();
-  console.log("dei", deliveryType);
 
   async function handleSubmit({ formValues }) {
-    console.log("from", formValues);
     let cart = JSON.parse(localStorage.getItem("cart"));
     try {
-      const { data } = await request({
+      await request({
         ...cart,
         ...formValues,
         deliveryOption: deliveryType,
       });
-      console.log("data", data);
+      // console.log("data", data);
     } catch (_) {}
   }
 
@@ -33,6 +31,7 @@ const Delivery = () => {
         deliveryType={deliveryType}
         initialValues={initialValues}
         handleSubmit={handleSubmit}
+        data={data}
       />
     </div>
   );
