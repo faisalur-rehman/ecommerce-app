@@ -14,6 +14,9 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/user-registration");
+    }
     async function fetchData() {
       try {
         await request({ articleId: id });

@@ -33,7 +33,9 @@ const Header = () => {
                 />
               </div>
               <div class="header_right col-lg-5  col-md-6 col-sm-12 d-flex">
-                <button class="btn btn-sm mr-4">Client Access </button>
+                <Link to="/user-registration">
+                  <button class="btn btn-sm mr-4">Client Access </button>
+                </Link>
                 <button class="btn btn-sm mr-4">Pro Access </button>
                 <Link to="/cart">
                   <i class="fas fa-cart-plus fa-2x text-dark"></i>
