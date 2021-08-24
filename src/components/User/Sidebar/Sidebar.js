@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import useApi from "../../../hooks/useApi";
 import Layout from "../../Layout/Layout";
 import Messages from "../Messages/Messages";
-import Orders from "../Orders/Orders";
 import UserAccount from "../UserAccount/UserAccount";
 import * as api from "../../../apis/api";
 import Account from "../UserAccount/Account";
+import Orders from "../Orders/Orders";
 
 const Sidebar = () => {
   const [account, setAccount] = useState(true);

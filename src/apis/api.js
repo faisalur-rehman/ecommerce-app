@@ -54,3 +54,6 @@ export function getUserProfile() {
 export function updateProProfile(user) {
   return api.patch("/user/update-profile", { ...user }, config);
 }
+export function getOrderHistory() {
+  return api.get("/orderhistory/get-for-specific-client", config);
+}
