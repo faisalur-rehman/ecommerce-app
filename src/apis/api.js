@@ -48,3 +48,9 @@ export function getSingleStore(data) {
 export function addOrderHistory(data) {
   return api.post(`/orderhistory/add`, { ...data }, config);
 }
+export function getUserProfile() {
+  return api.get("/user/profile", config);
+}
+export function updateProProfile(user) {
+  return api.patch("/user/update-profile", { ...user }, config);
+}
