@@ -13,8 +13,6 @@ const Login = () => {
   const { error, data, request } = useApi(api.loginUser);
   const history = useHistory();
   async function handleSubmit({ formValues }) {
-    console.log(formValues);
-
     try {
       const { data } = await request({ ...formValues, role: "client" });
       localStorage.setItem("token", data.token);

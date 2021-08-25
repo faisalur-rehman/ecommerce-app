@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Layout from "../../Layout/Layout";
 import Messages from "../Messages/Messages";
+
+import Account from "../UserAccount/Account";
 import Orders from "../Orders/Orders";
-import UserAccount from "../UserAccount/UserAccount";
 
 const Sidebar = () => {
   const [account, setAccount] = useState(true);
@@ -57,7 +58,7 @@ const Sidebar = () => {
             </p>
           </div>
         </div>
-        {account && <UserAccount />}
+        {account && <Account />}
         {messages && <Messages />}
         {orders && <Orders />}
       </div>
