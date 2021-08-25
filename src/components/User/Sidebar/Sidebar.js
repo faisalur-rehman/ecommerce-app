@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import useApi from "../../../hooks/useApi";
+import React, { useState } from "react";
 import Layout from "../../Layout/Layout";
 import Messages from "../Messages/Messages";
-import UserAccount from "../UserAccount/UserAccount";
-import * as api from "../../../apis/api";
+
 import Account from "../UserAccount/Account";
 import Orders from "../Orders/Orders";
 
@@ -11,21 +9,6 @@ const Sidebar = () => {
   const [account, setAccount] = useState(true);
   const [orders, setOrders] = useState(false);
   const [messages, setMessages] = useState(false);
-  // const { request } = useApi(api.getUserProfile);
-  // const updateUser = useApi(api.updateProProfile);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const { data } = await request();
-  //       console.log("data", data);
-  //     } catch (error) {
-  //       console.log(error.response);
-  //     }
-  //   }
-  //   fetchData();
-  //   //eslint-disable-next-line
-  // }, []);
 
   function handleActiveComponent(value) {
     if (value === "orders") {

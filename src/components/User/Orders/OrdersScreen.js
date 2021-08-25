@@ -1,7 +1,7 @@
 import React from "react";
 import capture from "../../../Assets/images/Capture.PNG";
 
-const OrdersScreen = ({ data }) => {
+const OrdersScreen = ({ data, handleCancelOrder }) => {
   return (
     <div id="page-content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -54,7 +54,12 @@ const OrdersScreen = ({ data }) => {
                         <td>{order.price} Da</td>
                         <td>{order.status}</td>
                         <td>
-                          <a class="btn button_danger">Cancel</a>
+                          <a
+                            onClick={() => handleCancelOrder(order._id)}
+                            class="btn button_danger"
+                          >
+                            Cancel
+                          </a>
                         </td>
                       </tr>
                     ))}

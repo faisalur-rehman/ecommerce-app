@@ -5,6 +5,7 @@ import OrdersScreen from "./OrdersScreen";
 
 const Orders = () => {
   const { request, data } = useApi(api.getOrderHistory);
+  const deleteHistory = useApi(api.deleteOrderHistory);
   console.log("here in account");
 
   useEffect(() => {
@@ -15,7 +16,20 @@ const Orders = () => {
     fetchData();
     //eslint-disable-next-line
   }, []);
-  return <div>{data && <OrdersScreen data={data} />}</div>;
+  const handleCancelOrder = async (id) => {
+    console.log("id", id);
+    try {
+      await deleteHistory.request({ orderHistoryId: id });
+      window.location.reload();
+    } catch (_) {}
+  };
+  return (
+    <div>
+      {data && (
+        <OrdersScreen data={data} handleCancelOrder={handleCancelOrder} />
+      )}
+    </div>
+  );
 };
 
 export default Orders;

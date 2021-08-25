@@ -57,3 +57,11 @@ export function updateProProfile(user) {
 export function getOrderHistory() {
   return api.get("/orderhistory/get-for-specific-client", config);
 }
+export function deleteOrderHistory(data) {
+  return api.delete("/orderhistory/delete", {
+    headers: {
+      Authorization: localStorage.getItem("token"),
+    },
+    data: { ...data },
+  });
+}
